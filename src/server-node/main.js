@@ -8,7 +8,7 @@ const {
 const PORT = process.env.PORT || 8080;
 
 const sdk = lightstep.configureOpenTelemetry({
-    spanEndpoint: "collector:55680",
+    spanEndpoint: "http://collector:55681/v1/trace",
     serviceName: 'server'
 });
 

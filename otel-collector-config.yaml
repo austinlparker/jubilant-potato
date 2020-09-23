@@ -3,6 +3,8 @@ receivers:
     protocols:
       grpc:
         endpoint: "0.0.0.0:55680"
+      http:
+        endpoint: "0.0.0.0:55681"
 processors:
   batch:
   queued_retry:
@@ -16,7 +18,7 @@ exporters:
     endpoint: "ingest.lightstep.com:443"
     compression: gzip
     headers:
-      "lightstep-access-token": ""
+      "lightstep-access-token": "TOKEN"
 service:
   extensions: [health_check, zpages]
   pipelines:

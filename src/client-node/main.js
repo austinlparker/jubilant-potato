@@ -5,9 +5,9 @@ const {
   opentelemetry,
 } = require('lightstep-opentelemetry-launcher-node');
 
-const TARGET_URL = process.env.TARGET_URL || 'http://localhost:8080/ping';
+const TARGET_URL = process.env.TARGET_URL || 'http://server:8080/ping';
 const sdk = lightstep.configureOpenTelemetry({
-  spanEndpoint: "collector:55680",
+  spanEndpoint: "http://collector:55681/v1/trace",
   serviceName: 'client'
 });
 
