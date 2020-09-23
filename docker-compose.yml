@@ -1,0 +1,14 @@
+version: "3.2"
+services:
+  client:
+    build: ./src/client-node
+  server:
+    build: ./src/server-node
+
+  collector:
+    image: otel/opentelemetry-collector:0.10.0
+    command: ["--config=/etc/otel-collector-config.yaml"]
+    volumes:
+      - /home/codespace/workspace/jubilant-potato/otel-collector-config.yaml:/etc/otel-collector-config.yaml
+    ports:
+      - "55680"
